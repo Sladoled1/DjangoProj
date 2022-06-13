@@ -18,9 +18,22 @@ from django.urls import path
 from django.shortcuts import render
 from django.http import HttpResponse
 
+
+
 def home(request):
     return render(request,'home.html')
+
+def logg(request):
+    return render(request,'logg.html')
+
+def result(request):
+    return render(request,'result.html')
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home),
+    path('logg/', logg),
+    path('result/', result)
+
 ]
