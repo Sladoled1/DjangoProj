@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Logining.apps.LoginingConfig',
+    'Cars.apps.CarsConfig',
 ]
 
 MIDDLEWARE = [
