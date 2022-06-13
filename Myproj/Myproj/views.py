@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render
 # Create your views here.
 def home(request):
-    return render(request,'Logining/home.html')
+    return render(request,'home.html')
 
-def logg(request):
-    return render(request,'Logining/logg.html')
+def result(request):
+    return render(request,'result.html')
