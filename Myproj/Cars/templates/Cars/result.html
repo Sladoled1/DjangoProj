@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1> Catalouge </h1>
+
+    <div>
+        {% for car in cars%}
+            {% if car.CarUsing == False %}
+                <div>
+                    <h4>
+                        <a href="/rent/{{car.id}}">{{car.CarModel}}</a>
+                        <br>
+                        {{car.CarDescription}}</h4>
+                    <img src={{car.CarImage.url}} alt="{{car.CarModel}}">
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+
+
+{% endblock content %}

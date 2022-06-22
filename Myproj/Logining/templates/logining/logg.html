@@ -1,7 +1,29 @@
 {% extends 'main.html' %}
 {% block content %}
-<h1> Logging </h1>
-<a href="/result">Log In</a>
-<input id= "login1" onchange = "f()" name="login" />
-<input id= "password" onchange = "f()" name="password" />
+
+{% if page == 'login' %}
+<div>
+    <form method="POST"  action="">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username" placeholder="Enter username"/>
+
+        <label>Password:</label>
+        <input type="password" name="password" placeholder="Enter password"/>
+        <input type="submit" value="Login" />
+    </form>
+    <p>haven't sign up yet?</p>
+    <a href="{% url 'register' %}">Sign up</a>
+</div>
+{% else %}
+<div>
+    <form method="POST"  action="">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Register" />
+    </form>
+    <p>Already sign up yet?</p>
+    <a href="{% url 'login' %}">Log in</a>
+</div>
+{% endif %}
 {% endblock content %}

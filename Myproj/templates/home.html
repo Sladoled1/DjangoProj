@@ -1,7 +1,10 @@
 
 {% extends 'main.html' %}
 {% block content %}
-<h1> Home </h1>
- <a href="/logg">Log In</a>
- <a href="/logg">Sign In</a>
+<h1>Main page</h1>
+{% if request.user.is_authenticated %}
+<h2>Hello,{{user.username}} </h2>
+
+
+{% endif %}
 {% endblock content%}

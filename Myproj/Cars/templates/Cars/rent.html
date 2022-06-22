@@ -1,0 +1,24 @@
+{% extends 'main.html' %}
+{% block content %}
+<div>
+            <div>
+                <h2>Model: {{car.CarModel}}<br>
+                    <h3>Description</h3>
+                    {{car.CarDescription}}<br>
+                    Car color: {{car.CarColor}}<br>
+                    Car year: {{car.CarYear}}<br>
+
+                </h2>
+                <img src={{car.CarImage.url}} alt="{{car.CarModel}}">
+                {% if request.user.is_authenticated and car.CarUsing == False %}
+                <div>
+                    <form method="POST"  action="">
+                    {% csrf_token %}
+                    <input type="submit" value="Rent" />
+                </form>
+                </div>
+                {% endif %}
+            </div>
+
+    </div>
+{% endblock content%}
