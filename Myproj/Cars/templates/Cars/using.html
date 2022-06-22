@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+{% block content %}
+<div>
+            <div>
+                <h2>Орендовані машини:</h2>
+                {% if request.user.is_authenticated %}
+                    {% for car in cars%}
+                        {% if car.UserRentId == user.id and car.CarUsing == True %}
+                        <h2>Model: {{car.CarModel}}<br>
+                            <h3>Description</h3>
+                            {{car.CarDescription}}<br>
+                        </h2>
+                        <img src={{car.CarImage.url}} alt="{{car.CarModel}}">
+                        <div>
+                            <form method="POST"  action="">
+                            {% csrf_token %}
+                            <input type="submit" value="StopRent" />
+                        </form>
+                        </div>
+
+                        {% endif %}
+                    {% endfor %}
+                {% else %}
+                    <h2>Зайдіть у профіль</h2>
+                {% endif %}
+            </div>
+
+    </div>
+{% endblock content%}
